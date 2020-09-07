@@ -39,14 +39,7 @@ console.log("--------------------------------------------");
 // userMap.set(1, "1123323");
 // console.log("name", userMap.get("name"));
 
-let mapGuest = new Map();
-console.log(mapGuest);
-guestArr.forEach(item => {
-    if (!mapGuest.has(item.city)) // has라는 내장함수를 통해 키가 있는지를 true false 리턴해준다. 
-            mapGuest.set(item.city, []);
 
-    mapGuest.get(item.city).push(item);
-})
 
 console.log(mapGuest)
 // map은 키에 숫자 스트링 상관없이 들어 갈 수 있다. 심지어 변수도 하지만 object는 넣지 못한다.
