@@ -11,10 +11,10 @@ const getTime = () => {
     
 }
 
-const init = () => {
+const initClock = () => {
     getTime();
     setInterval(getTime,1000)
     
 }
 
-init();
+initClock();

@@ -35,8 +35,8 @@ const loadName = () => {
     }
 }
 
-const inits = () => {
+const initGreeting = () => {
     loadName();
 }
  // DB에서도 그 URL로 (라우터)로 접근해야 정해진 그 데이터를 얻을 수 있다. 그 URL에서만 가져올수 있지
-inits();
+initGreeting();
