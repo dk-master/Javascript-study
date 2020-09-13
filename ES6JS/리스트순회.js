@@ -51,7 +51,7 @@ console.log(iterator.next()); // value에 오는 값을 for 문 a에 담아서 �
 let iter1 = arr[Symbol.iterator]();
 iter1.next(); //  이 동작이 for문 안에서 이뤄지는 것이다.
 for(const a of iter1){
-    console.log(a)
+    console.log(a)  
 }
 
 
