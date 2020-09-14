@@ -62,5 +62,3 @@ console.log(iter4.next());
 console.log(iter4.next());
 
 // for of , 전개연산자, 구조 분해, 나머지 연산자 제너레이터 같이 사용할 수 있다.
-
-console.log(odds(10))
