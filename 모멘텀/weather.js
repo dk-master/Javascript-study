@@ -1,5 +1,4 @@
 const COORDS = 'coords';
-const API_KEY = '3dec27ed5d00ec24c2ed3a25ec1f6a44'
 const weather = document.querySelector(".js-weather")
 const saveCoords = (coordsObj) => {
     localStorage.setItem(COORDS,JSON.stringify(coordsObj));
@@ -7,7 +6,7 @@ const saveCoords = (coordsObj) => {
 
 const getWeather = (lat,lng) => {
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}` 
+       // `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}` 
     ). then(function(response) {
         return response.json();
     }).then(function(json) {
