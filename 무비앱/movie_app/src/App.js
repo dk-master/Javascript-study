@@ -7,8 +7,7 @@ function Food({name,image}) { // props가 object 그니까 데이터베이스 �
     <img src = {image}/>
 
   </div>
-}
-
+};
 const foodILike = [
   {
   name: "Kimchi",
@@ -30,7 +29,6 @@ const foodILike = [
     image : "https://user-images.githubusercontent.com/61861809/93076774-cfe1ee00-f6c2-11ea-90d7-b4d83c6190d1.jpg"
   }
 ];
-
 
 
 function App() {
