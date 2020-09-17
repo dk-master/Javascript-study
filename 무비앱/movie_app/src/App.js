@@ -60,31 +60,70 @@ import PropTypes from "prop-types";
 // }
 
 
-class App extends React.Component {
-     // react는 자동적으로 redner메소드를 실행한다 그래서 화면에 보여준다... 그게 리액트다
-  state = {
-    count : 0
-  };
+// class App extends React.Component {
+//      // react는 자동적으로 redner메소드를 실행한다 그래서 화면에 보여준다... 그게 리액트다
+//   state = {
+//     count : 0
+//   };
 
-  add = () => {
-    console.log("add")
-  } 
+//   add = () => {
+//     console.log("add")
+//   } 
 
-  minus = () => {
+//   minus = () => {
 
-  }
-  render() {
-  return( <div>
-    <h1>The number is : {this.state.count}</h1>
-  <button onClick={this.add}>Add</button>
-  <button onClick={this.minus}>Minus</button></div>
-  );
-   // 버튼엔 onClick이라는 prop이 default로 존재한다
-}
+//   }
 
-}
-export default App;
+//   componentDidMount() {
+//     console.log("component rendereed");
+//   }
+
+//   componentDidUpdate() {
+//     console.log(" I just updated");
+//   }
+//   render() {
+//     console.log("I am rendering")
+//   return( <div>
+//     <h1>The number is : {this.state.count}</h1>
+//   <button onClick={this.add}>Add</button>
+//   <button onClick={this.minus}>Minus</button></div>
+//   );
+//    // 버튼엔 onClick이라는 prop이 default로 존재한다
+// }
+
+// }
 
 // 강의 컴포넌트 하나 끝날때마다 맨밑에 주석으로 남겨놓자
 //컴포넌트는 html을 반환하는 함수 !!!!
 // props를 어던 컴포넌트에 넘겨줬는데 그 컴포넌트는 받았지만 확인할수 있는 방법이 필요하다(우리가 원하는 props이 우리가 갖고 있는 props인지 체크하는 방법)
+
+/*
+  lifecycle method
+
+  
+
+*/
+
+
+
+
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies : []
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isLoading : false})
+    }, 6000);
+  }
+
+
+  render() {
+  const {isLoading} = this.state;
+  return <div>{isLoading ? "Loading" : "We are ready"}</div>
+  }
+}
+
+export default App;
