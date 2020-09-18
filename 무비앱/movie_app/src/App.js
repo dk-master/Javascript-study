@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import axios from "axios";
+import Movie from "./Movie";
+import "./App.css"
+
 
 // const foodILike = [
 //   {
@@ -113,17 +117,44 @@ class App extends React.Component {
     movies : []
   };
 
+  getmovies = async () => {
+    const {isLoading} = this.state;
+    this.setState({isLoading : false})
+    const{data: {data : {movies}}} = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating"); //es6문법인데 전부다 객체이므로 저렇게 구조분해해서 가져올 수 있다.
+    console.log(movies)
+    this.setState({movies : movies}); // 만약 받아오는 이름과 객체에 있었던 이름이 같다면 그냥 하나로 {movies}라고 사용할 수 있다.
+    // this.setState({movies, isLoading : false}) -> 이렇게 두개를 한꺼번에 상태변경 할 수도 있다..!!
+  }
+
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({ isLoading : false})
-    }, 6000);
+    this.getmovies();
+
   }
 
 
   render() {
-  const {isLoading} = this.state;
-  return <div>{isLoading ? "Loading" : "We are ready"}</div>
-  }
-}
+  const {isLoading,movies} = this.state;
+  return ( 
+  <section className="container">
+    {isLoading ? (
+    <div className="loader"> 
+      <span className = "loader__text">Loading...s</span>
+      </div>) :
+      (<div className ="movies">
+        {movies.map(movie => (<Movie key = {movie.id} id ={movie.id} year = {movie.year} title = {movie.title} summary = {movie.summary} poster = {movie.medium_cover_image} genres = {movie.genres} />
+
+  
+      ))}
+        </div> )}
+      </section>
+   //Movie로 맵으로 정제된 데이터들(props)을 보내고 Movie컴포넌트에서 return한 값들을 다시 받아와서 화면에 뿌려준다
+  )
+
+      }
+
+    }
 
 export default App;
+
+// 일반사람들이 데이터를 fetch할때 쓰는 방법 fetch
+// 자바스크립트 JSX안에서 html코드 class를 넣는다면 자바스크립트 class와 헷갈릴 수 있다.
