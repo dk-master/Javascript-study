@@ -14,5 +14,4 @@ function Movie({id,year,title,summary,poster,genres}) {
         </div>
     </div> );
 }
-
 export default Movie;
