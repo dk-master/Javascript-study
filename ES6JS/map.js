@@ -14,7 +14,7 @@ const map  = (f,iter) => { // 어떤값을 수집할 것 인지 f라는 함수�
     }
         return names;
 
-}
+} // 맵 함수는 이 함수라 비슷하다
 
 // const result = document.querySelectorAll("*");
 // console.log(map(el => el.nodeName, result));

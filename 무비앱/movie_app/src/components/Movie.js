@@ -1,8 +1,19 @@
 import React from "react";
 import "./Movie.css";
+import { Link} from "react-router-dom" 
 
-function Movie({id,year,title,summary,poster,genres}) { 
+function Movie({id,year,title,summary,poster,genres}) {  // home.js에서 받은 props를 state로 쓴다.
     return(
+        <Link to={{
+            pathname : "/movie/${id}",
+            state : {
+                
+                year : year,
+                title : title,
+                summary : summary,
+                poster : poster,
+                genres : genres,    
+            }}}>
     <div className = "movie">
         <img src={poster} alt={title} title={title} />
         <div className ="movie_data">
@@ -12,6 +23,7 @@ function Movie({id,year,title,summary,poster,genres}) {
         <p className="movie__summary">{summary}</p>
     
         </div>
-    </div> );
+    </div>
+    </Link> );
 }
 export default Movie;
